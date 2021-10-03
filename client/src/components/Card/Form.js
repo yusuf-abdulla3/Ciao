@@ -4,7 +4,11 @@ import AddVideo from "./AddVideo";
 import AddGif from "./AddGif";
 import FileUploadForm from "./FileUploadForm";
 import { useEffect, useState } from "react";
+
+
 export default function Form(props) {
+  const {userId, setUserId, setCardId, cardId, firstName} = props;
+  console.log('userid form', userId);
   const [searchValue, setSearchValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [inputType, setInputType] = useState("");
@@ -13,6 +17,7 @@ export default function Form(props) {
     setInputType(type);
     setSearchValue("");
     setDescriptionValue("");
+
   };
   const onClick = (event) => {
     event.preventDefault();
@@ -48,7 +53,7 @@ export default function Form(props) {
         //   placeholder=""
         //   onClick={onClick}
         // />
-        <AddGif/>
+        <AddGif userId={userId} setCardId={setCardId} cardId={cardId} firstName={firstName}/>
       )}
     </>
   );

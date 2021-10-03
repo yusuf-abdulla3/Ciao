@@ -23,7 +23,7 @@ CREATE TABLE recipients(
 CREATE TABLE cards(
     id SERIAL PRIMARY KEY NOT NULL,
     title VARCHAR(255) NOT NULL,
-    background_image VARCHAR(255) NOT NULL,
+    background_image VARCHAR(255),
     time_created TIMESTAMP,
     time_sent TIMESTAMP,
     owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -33,6 +33,7 @@ CREATE TABLE cards(
 
 CREATE TABLE contributors(
     id SERIAL PRIMARY KEY NOT NULL,
+    con_name VARCHAR(255),
     email VARCHAR(255) NOT NULL,
     card_id INTEGER REFERENCES cards(id) ON DELETE CASCADE
 );

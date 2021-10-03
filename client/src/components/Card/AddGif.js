@@ -7,7 +7,9 @@ import classNames from "classnames";
 import { useHistory } from 'react-router-dom';
 
 export default function AddGif(props) {
+  const {userId, cardId} = props;
 
+  console.log('useerid gif', userId, cardId );
   const onClick = () => {
     console.log('clicked on add Gif');
   }
@@ -96,16 +98,17 @@ export default function AddGif(props) {
   }
   const handlePostSubmit = (e) => {
     e.preventDefault();
-    console.log('@@#$tyui');
-    const reactData = {selectedGif, selectText, selectedGifId}
+    console.log('@@#$tyui', cardId);
+    const reactData = {selectedGif, selectText, selectedGifId, userId, cardId}
     const url = 'http://localhost:3001/api/gif/'
     let sendData = () => {
     axios.post(url, reactData)
-      .then(res => console.log('data send'))
+      .then(res => console.log('data send',res))
       .catch(err => console.log('--->--',err.data))
     }
     sendData();
-    history.push('/createcard');
+    // history.push(`/card/${cardId}`);
+    history.push(`/cards`);
   }
   return (
     <>
