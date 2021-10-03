@@ -1,13 +1,14 @@
 
 import './App.css';
 import useApplicationData from './hooks/useApplicationData';
+
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import SignUp from './components/SignUp';
 import Form from './components/Card/Form';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -34,6 +35,7 @@ function App() {
   const [ cardId, setCardId ] = useState('');
   const [ sentCardsArr, setSentCardsArr] = useState([]);
   // const { id } = useParams();
+  
 
   const checkLoggedIn = () => {
     console.log('clicked on testing');
@@ -72,7 +74,11 @@ function App() {
   
   return (
     <Router>
+       
+    
       <div className="App" >
+      
+
         <Navbar loginStatus = {loginStatus} firstName={firstName} setLoginStatus={setLoginStatus} userId={userId} />
         {/* <h1> Users </h1> */}
         {/* <ul> {userList} </ul> */}
@@ -115,11 +121,15 @@ function App() {
           </Route>
           <Route exact path="/createcard">
           {/* <Route path='/cards/:id'> */}
-            <NewCard loginStatus = {loginStatus} userId={userId} setCardId={setCardId}/>
+            <NewCard loginStatus = {loginStatus} userId={userId} setCardId={setCardId} cardId={cardId}/>
           </Route>
         </Switch>
 
       </div >
+
+
+
+      
     </Router>
   );
 }

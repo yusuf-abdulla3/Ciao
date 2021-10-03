@@ -13,22 +13,25 @@ export default function NewCard (props) {
   const { id } = useParams();
   const history = useHistory();
 
-  const handleCardSubmit = (event) => {
+  const handleCardSubmit = async (event)  => {
     event.preventDefault();
     const url = 'http://localhost:3001/api/newcard/';
     console.log('userid', userId);
     const reactData = {title, fName, lName, email, userId }
-    axios.post(url, reactData)
+    await axios.post(url, reactData)
     .then(res => {
-      console.log('card details send');
-      console.log(res)
+      console.log('card details send', res);
+     
       setCardId(res.data.cardId);
+      history.push(`/card/${res.data.cardId}`);
     })
     .catch(err => console.log('--->--',err.data))
 
     
-    history.push('/post');  
-    // history.push(`/cards/${id}`);
+    // history.push('/post');  
+    // history.push('/sent');  
+
+    
   }
   
   

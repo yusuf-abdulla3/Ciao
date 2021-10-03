@@ -7,7 +7,7 @@ import classNames from "classnames";
 import { useHistory } from 'react-router-dom';
 
 export default function AddGif(props) {
-  const {userId, cardId} = props;
+  const {userId, cardId, showGif, setShowGif} = props;
 
   console.log('useerid gif', userId, cardId );
   const onClick = () => {
@@ -23,7 +23,7 @@ export default function AddGif(props) {
   const [selectedGifId, setSelectedGifId] = useState("");
   const [selectText, setSelectText] = useState("");
   const history = useHistory();
-
+  // const [showGif, setShowGif] = useState(false);
 
   const handleSelectGif = (data) => {
     const { gif, id } = data
@@ -107,8 +107,10 @@ export default function AddGif(props) {
       .catch(err => console.log('--->--',err.data))
     }
     sendData();
+    window.location.reload(false);
+    // setShowGif(false);
     // history.push(`/card/${cardId}`);
-    history.push(`/cards`);
+    // history.push(`/cards`);
   }
   return (
     <>

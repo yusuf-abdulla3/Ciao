@@ -2,6 +2,7 @@ import Button from "./Button";
 import AddImg from "./AddImg";
 import AddVideo from "./AddVideo";
 import AddGif from "./AddGif";
+import Text from "./text";
 import FileUploadForm from "./FileUploadForm";
 import { useEffect, useState } from "react";
 
@@ -30,6 +31,7 @@ export default function Form(props) {
   // }, [inputType]);
   return (
     <>
+    <div>
       <button type="button" onClick={() => handleClick("image")}>
         add image
       </button>
@@ -39,21 +41,20 @@ export default function Form(props) {
       <button type="button" onClick={() => handleClick("video")}>
         add video
       </button>
-
+      </div>
+      {inputType !== 'image' && inputType!=='gif'&& inputType !== 'video' && (
+      <Text />
+      )}
+      {inputType === 'video' && (
+        <AddVideo />
+      )}
       {inputType === 'gif' && (
-        // <FileUploadForm
-        //   searchValue={searchValue}
-        //   setSearchValue={(event) => {
-        //     setSearchValue(event.target.value);
-        //   }}
-        //   descriptionValue={descriptionValue}
-        //   setDescriptionValue={(event) => {
-        //     setDescriptionValue(event.target.value);
-        //   }}
-        //   placeholder=""
-        //   onClick={onClick}
-        // />
+        
         <AddGif userId={userId} setCardId={setCardId} cardId={cardId} firstName={firstName}/>
+      )}
+
+      {inputType === 'image' && (
+              <AddImg />
       )}
     </>
   );

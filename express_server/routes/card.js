@@ -12,9 +12,11 @@ module.exports = (db) => {
 
     const card_id = req.params.id;
     const query1 = {
-      text:`SELECT posts.gif, posts.text, users.first_name
+      text:`SELECT posts.gif, posts.image, posts.video, posts.text, users.first_name, cards.title
       FROM posts
-      INNER JOIN users ON posts.user_id = users.id WHERE posts.card_id = $1;`,
+      INNER JOIN users ON posts.user_id = users.id 
+      INNER JOIN cards ON posts.card_id = cards.id
+      WHERE posts.card_id = $1;`,
       // text: `SELECT * FROM posts where card_id = $1`,
       values:[card_id]
     }
