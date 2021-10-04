@@ -48,8 +48,12 @@ module.exports = (db) => {
          db.query(query1)
           .then(result => {
             console.log('returning query2', result.rows[0])
-            const firstName = {firstName: result.rows[0].first_name}
-            return res.send(firstName);
+            if(result.rows[0]){
+
+              const firstName = {firstName: result.rows[0].first_name}
+              return res.send(firstName);
+            }
+            res.send(200, {message:'okay'});
           })
       })
       .catch(err => console.log('cardid error',err));
