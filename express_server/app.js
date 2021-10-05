@@ -24,6 +24,7 @@ let postsImgRouter = require('./routes/postImg');
 let textRouter = require('./routes/text');
 let allRoutes = require('./routes/allRoutes');
 let BgRouter = require('./routes/background');
+let deleteRouter = require('./routes/deletePost');
 const background = require('./routes/background');
 
 
@@ -74,6 +75,7 @@ app.use('/api/contributor', contributorRouter(db));
 app.use('/api/sent', sentRouter(db));
 app.use('/api/card', cardRouter(db));
 app.use('/api/filterpost', filterPostRouter(db));
-app.use('api/bgimg', BgRouter(db))
+app.use('api/bgimg', BgRouter(db));
+app.use('/api/delete', deleteRouter(db));
 module.exports = app;
 

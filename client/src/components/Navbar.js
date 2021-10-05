@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-export default function Navbar(props) {
+import '../css/bootstrap.min.css';
+import '../css/tooplate-style.css';
+import '../slick/slick.css';
+import '../slick/slick-theme.css'
+import {Navbar, Button,Nav,Container} from 'react-bootstrap';
+export default function Navbarpage(props) {
   const { loginStatus, firstName, setLoginStatus, userId, sentCards} = props;
   const history = useHistory();
   const loggedOut = () => {
@@ -21,8 +26,33 @@ export default function Navbar(props) {
 
   return (
     <div>
-      <h1>Navbar page</h1>
-      <nav className="navbar">
+      <Navbar bg="dark"className="nav-color navbar" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Ciao</Navbar.Brand>
+          <Nav className="me-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/createcard">Create Card</Nav.Link>
+            {loginStatus &&
+                    <>
+                    <Navbar.Text>
+              logged in as: {firstName}
+            </Navbar.Text>
+                    {/* <li>logged in as -- {firstName}</li> */}
+                    <Nav.Link href='/sent/' onClick={sentCards}>List</Nav.Link>
+                  <Button  variant="outline-dark" onClick={loggedOut}>Logout</Button>
+                  </>
+                  }
+                  {!loginStatus &&
+                    <>
+                      <Nav.Link href='/login'>Login</Nav.Link>
+                      <Nav.Link href='/signup'>SignUp</Nav.Link>
+                    </> 
+                  }
+          </Nav>
+        </Container>
+      </Navbar>
+   
+      {/* <nav className="navbar">
         <div>
           <ul>
             <li><Link to='/'>Home</Link></li>
@@ -31,7 +61,7 @@ export default function Navbar(props) {
               <>
               <li>logged in as -- {firstName}</li>
               <li><Link to='/sent/' onClick={sentCards}>List</Link></li>
-              <li><button onClick={loggedOut}>Logout</button></li>
+              <li><Link onClick={loggedOut}>Logout</Link></li>
               </>
             }
             {!loginStatus &&
@@ -43,7 +73,7 @@ export default function Navbar(props) {
             
           </ul>
         </div>
-      </nav>
+      </nav> */}
     </div>
   );
 }

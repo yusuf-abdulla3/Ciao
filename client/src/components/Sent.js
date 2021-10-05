@@ -35,14 +35,17 @@ export default function Sent(props){
   return(
     <>
       
-      <h1>Sent page</h1>
+      <h4 className='heading'>Cards Created</h4>
+      
       {/* <button onClick={sentCards}>click to view cards</button> */}
       {cardList.map(card => (
-        <div key = {card.id} >
-        <a onClick={()=>showCard(card.id)} href={``}>
-          {card.title}
-          <img src= {card.background_image}/>
-        </a>
+        <div key = {card.id} className="sentcss">
+          <div className="titlebg">
+            <a onClick={()=>showCard(card.id)} href={``}>
+                <h6>{card.title}</h6>
+                <img src= {card.background_image}/>
+            </a>
+          </div>
         </div>
       )
         
