@@ -20,7 +20,7 @@ export default function SignUp() {
     .catch(err => console.log('--->--',err.data))
 
     
-    history.push('/');  
+    history.push('/login');  
   }
   
   return (
@@ -56,7 +56,7 @@ export default function SignUp() {
               </div>
               <div className="form-group myformgrp">
                 <input
-                  type="text"
+                  type="password"
                   placeholder = "Please enter your password"
                   onChange = {e => setRegPass(e.target.value)}
                   className="form-control"

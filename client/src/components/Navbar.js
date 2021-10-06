@@ -34,12 +34,13 @@ export default function Navbarpage(props) {
             <Nav.Link href="/createcard">Create Card</Nav.Link>
             {loginStatus &&
                     <>
-                    <Navbar.Text>
-              logged in as: {firstName}
-            </Navbar.Text>
+                    
                     {/* <li>logged in as -- {firstName}</li> */}
                     <Nav.Link href='/sent/' onClick={sentCards}>List</Nav.Link>
-                  <Button  variant="outline-dark" onClick={loggedOut}>Logout</Button>
+                  <Nav.Link  variant="outline-dark" onClick={loggedOut}>Logout</Nav.Link>
+                  <Navbar.Text>
+                  logged in as: {firstName}
+                  </Navbar.Text>
                   </>
                   }
                   {!loginStatus &&
