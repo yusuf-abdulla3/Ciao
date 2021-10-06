@@ -3,7 +3,6 @@ var router = express.Router();
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID)
 
-
 module.exports = (db) => {
   /* GET home page. */
 

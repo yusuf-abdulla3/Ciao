@@ -56,27 +56,44 @@ export default function ContributorForm (props){
   }
   return (
     <>
-      <form onSubmit = {handleSubmit}>
+      <div >
+      <form onSubmit = {handleSubmit} className="contact-form mycontformmodal">
+        <div className="form-group myformgrp">
+        <label> Contributor Name</label>
+          <br />
         <input type="text"
           placeholder = "enter the contributor name"
           onChange = {(e)=>{setConName(e.target.value)}}
+          className="form-control form-controlmodal"
         />
+        </div>
+        <div className="form-group myformgrp">
+        <label> Contributor Email</label>
+          <br />
         <input type="text"
           placeholder = "enter the contributor email"
           onChange = {(e)=>{setConEmail(e.target.value)}}
+          className="form-control form-controlmodal"
         />
+        </div>
+        <div className="form-group myformgrp">
+        <label> Enter your email</label>
+          <br />
         <input type="text"
-          placeholder = "enter your email"
+          placeholder = "Sender Email"
           onChange = {(e)=>{setEmail(e.target.value)}}
+          className="form-control form-controlmodal"
         />
+        </div>
         {/* <input type="text"
           placeholder = "enter your message"
           onChange = {(e)=>{setConText(e.target.value)}}
         /> */}
-        <input type="submit"
-        />
+        <button type="submit" class="btn btn-primary mybtncss"
+        >invite</button>
       </form>
       <div>{renderError()}</div>
+      </div>
     </>
   );
 }

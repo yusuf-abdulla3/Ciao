@@ -33,31 +33,42 @@ export default function SendCard(props){
 
   
   return (
-    <div>
-      <div >
-          <h2> Send Email </h2>
-          <label> Recipient </label>
+    <div className="contact-form mycontformmodal">
+      
+          
+          <label> Recipient Email</label>
           <br />
-          <input value={recipient}
-            onChange={e => setRecipient(e.target.value)} />
-          <div  />
-          <label> Sender </label>
-          <br />
-          <input value={sender}
-            onChange={e => setSender(e.target.value) } />
-          <div  />
-          <label> Subject </label>
-          <br />
-          <input value={subject}
-            onChange={e => setSubject(e.target.value)} />
-          <div />
+          <div className="form-group myformgrp">
+            <input value={recipient}
+            onChange={e => setRecipient(e.target.value)} 
+            className="form-control form-controlmodal"
+            />
+            
+          </div>
+          <label> Sender Email</label>
+            <br />
+          <div className="form-group myformgrp">
+            
+            <input value={sender}
+              onChange={e => setSender(e.target.value) } 
+              className="form-control form-controlmodal"
+              />
+          </div>
+          <div className="form-group myformgrp">
+            <label> Subject </label>
+            <br />
+            <input value={subject}
+              onChange={e => setSubject(e.target.value)} 
+              className="form-control form-controlmodal"
+              />
+          </div>
           {/* <label> Message </label> */}
           {/* <br /> */}
           {/* <textarea rows={3} value={text} 
             onChange={e => setText(e.target.value)} >Hello</textarea>
           <div  /> */}
-          <button onClick={sendEmail}> Send Email </button>
+          <button onClick={sendEmail} class="btn btn-primary mybtncss"> Send Email </button>
         </div>
-    </div>
+    
   );
 }

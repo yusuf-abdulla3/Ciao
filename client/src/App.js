@@ -26,6 +26,7 @@ import axios from 'axios';
 import CardDetails from './components/Card/CardDetails';
 import Contributors from './components/Card/Contributors';
 import {Container} from 'react-bootstrap';
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // axios.defaults.withCredentials = true;
 
@@ -77,7 +78,7 @@ function App() {
     <Router>
        
     
-      <div className="App" >
+      <div className="App">
       
      
         <Navbar loginStatus = {loginStatus} firstName={firstName} setLoginStatus={setLoginStatus} userId={userId} />
